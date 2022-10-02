@@ -2,37 +2,50 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 8vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.App-header p{
+  text-align: center;
+  margin-left: 3vh;
+  font-size: 28px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.matematica {
+  background-color: #111c33;
+  font-size: calc(6px + 4vmin);
+  width: 100%;
+  color: #9ba1af;
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  background-color: rgb(9, 126, 9);
+  color: rgb(228, 225, 225);
+  border-radius: 16px;
+  padding: 0px 0px  0px  0px;
+  padding: 5px;
+  font-size: 3.4vh;
+  border: double 0.01px rgb(21, 49, 102);
+}
+button:hover{
+  background-color: rgb(21, 153, 21);
+  color: white;
+  border: solid 1px rgb(37, 12, 180);
+}
+
+input {
+  background-color: #FFFFFF;
+  border-radius: 20px;
+  padding: 4px 0px 4px 12px;
+  border: solid 2px #1a2b50;
+  box-shadow: 3px 0px 15px 0px #213c77;
+  height: 1.5em;
+  font-size: 2.9vh;
+  outline: red;
 }
