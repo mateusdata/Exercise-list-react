@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./app.css";
+let placeHora = null;
 export default function Horas() {
   const [horas, setHoras] = useState("");
   const [resultadoHora, setResultadoHora] = useState("");
@@ -9,10 +10,11 @@ export default function Horas() {
     let hora = (parseFloat(horas) * 37) / 3600;
     let minutos = (hora - parseInt(hora)) * 60;
     let segundos = (minutos - parseInt(minutos)) * 60;
+    placeHora = parseInt(horas)
     console.log(
       "HOTAS: " + hora.toFixed(2) + "\n segundo" + minutos + "\n" + segundos
     );
-    if (!isNaN(horas) && horas > 0) {
+    if (!isNaN(horas) && horas  > 0) {
       setResultadoHora(
         parseInt(hora) +
           " horas, " +
@@ -22,7 +24,11 @@ export default function Horas() {
           " segundos"
       );
     }
+    else{
+      setResultadoHora("Somente números são permitidos")
+    }
     document.getElementById("hora").value = null;
+    setHoras(null)
   }
 
   return (
@@ -40,7 +46,7 @@ export default function Horas() {
         <label htmlFor="">Quantidade de peças</label>
         <input
           id="hora"
-          placeholder="Quantidade de peças"
+          placeholder={placeHora ? "Ex: " + placeHora : "Ex: 12"}
           onChange={(e) => setHoras(e.target.value)}
           type="text"
         />

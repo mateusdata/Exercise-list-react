@@ -1,19 +1,28 @@
-
 import { useState } from "react";
 import "./app.css";
 export default function Dobro() {
-  const [number, setNumber] = useState("")
-  const [imprimirNumber, setImprimirNumber] = useState("")
+  const [number, setNumber] = useState("");
+  const [imprimirNumber, setImprimirNumber] = useState("");
+
   function verificar(e) {
     e.preventDefault();
-    let dobro = parseInt(number) + parseInt(number);
+    let dobro = parseFloat(number) + parseFloat(number);
+    dobro.toFixed(2);
 
-    if (!isNaN(dobro) && !isNaN(number) ) {
-      setImprimirNumber(`O dobro de ${number} é ${dobro}`);
+    if (!isNaN(dobro) && !isNaN(number)) {
+      if (parseFloat(number) < 1) {
+        setImprimirNumber("Não existe o dobro de 0");
+        return;
+      } else {
+        setImprimirNumber(
+          `O dobro de ${parseFloat(number).toFixed(2)} é ${dobro.toFixed(2)}`
+        );
+      }
     } else {
-      setImprimirNumber("Somente números sao permitido");
+      setImprimirNumber("Somente números são permitidos");
     }
     document.getElementById("dobro").value = null;
+   // setNumber(null)
   }
 
   return (
@@ -25,8 +34,7 @@ export default function Dobro() {
           id="dobro"
           onChange={(e) => setNumber(e.target.value)}
           type="text"
-          placeholder="Informe um número"
-        
+          placeholder={parseInt(number) ? "Ex: " + parseInt(number) : "Ex: 20"}
         />
         <button id="xx">Verificar</button>
       </form>

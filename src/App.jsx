@@ -3,6 +3,8 @@ import Dobro from "./componets/dobro/dobro";
 import Trapezio from "./componets/trapezio/trapezio";
 import Aluguel from "./componets/aluguel/aluguel";
 import Horas from "./componets/horas/horas";
+import Gotas from "./componets/remedio/gotas";
+import Hotel from "./componets/hotel/hotel";
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
         <Trapezio />
         <Aluguel />
         <Horas/>
+        <Gotas/>
+        <Hotel/>
       </div>
     </div>
   );

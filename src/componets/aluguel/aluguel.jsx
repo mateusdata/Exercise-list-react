@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./app.css";
 
+let placeOne = null;
+let placeTwo = null;
 export default function Aluguel() {
   const [agenciaX, setAgenciaX] = useState("");
   const [agenciaY, setAgenciaY] = useState("");
@@ -10,15 +12,22 @@ export default function Aluguel() {
     e.preventDefault();
     let resultadoX = parseFloat(agenciaX) * 1.4 + 62;
     let resultadoY = parseFloat(agenciaY) * 1.2 + 80;
+    placeOne = parseInt(agenciaX);
+    placeTwo = parseInt(agenciaY);
+    console.log(placeOne + placeTwo);
     if (!isNaN(resultadoX) && !isNaN(resultadoY) && !isNaN(agenciaX)) {
       setResuldadoAgencias(
         `O preço da diaria primeira agencia é R$${resultadoX.toFixed(
           2
         )}, preço da diaria na agencia Y é R$${resultadoY.toFixed(2)}`
       );
-      document.getElementById("agenciaX").value = null;
-      document.getElementById("agenciaY").value = null;
+    } else {
+      setResuldadoAgencias("Somente números são permitidos");
     }
+    document.getElementById("agenciaX").value = null;
+    document.getElementById("agenciaY").value = null;
+    setAgenciaX(null);
+    setAgenciaY(null);
   }
 
   return (
@@ -38,14 +47,14 @@ export default function Aluguel() {
           onChange={(e) => setAgenciaX(e.target.value)}
           id="agenciaX"
           type="text"
-          placeholder="Quantidade de km rodado"
+          placeholder={placeOne ? "Ex: " + placeOne : "Ex: 50"}
         />
         <label htmlFor="">Segunda agência</label>
         <input
           onChange={(e) => setAgenciaY(e.target.value)}
           id="agenciaY"
           type="text"
-          placeholder="Quantidade de km rodado"
+          placeholder={placeTwo ? "Ex: " + placeTwo : "Ex: 100"}
         />{" "}
         <br />
         <button>Verificar</button>

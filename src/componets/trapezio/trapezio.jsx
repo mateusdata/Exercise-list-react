@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import "./app.css";
+let placeB = null;
+let placeBb = null;
+let placeH = null;
 export default function Trapezio() {
   const [B, setB] = useState("");
   const [b, setBm] = useState("");
@@ -11,15 +14,21 @@ export default function Trapezio() {
     setB(B);
     setBm(b);
     setH(h);
+    placeB = parseInt(B);
+    placeBb = parseInt(b);
+    placeH = parseInt(h);
     let A = ((parseFloat(B) + parseFloat(b)) * parseFloat(h)) / 2;
     if (!isNaN(A)) {
       setResultadoTrapezio("A altura do trapezio é " + A);
     } else {
-      setResultadoTrapezio("Somente números sao permitido");
+      setResultadoTrapezio("Somente números sao permitidos");
     }
     document.getElementById("B").value = "";
     document.getElementById("b").value = "";
     document.getElementById("A").value = "";
+    setB(null);
+    setBm(null);
+    setH(null);
   }
 
   return (
@@ -36,7 +45,7 @@ export default function Trapezio() {
           id="B"
           onChange={(e) => setB(e.target.value)}
           type="text"
-          placeholder=" Informe a base maior (B)"
+          placeholder={placeB ? "Ex: " + placeB : "Ex: 30"}
         />
 
         <label htmlFor="">Base menor (b)</label>
@@ -44,7 +53,7 @@ export default function Trapezio() {
           id="b"
           onChange={(e) => setBm(e.target.value)}
           type="text"
-          placeholder=" Informe a base menor (b)"
+          placeholder={placeBb ? "Ex: " + placeBb : "Ex: 40"}
         />
 
         <label htmlFor="">Altura (h)</label>
@@ -52,7 +61,7 @@ export default function Trapezio() {
           id="A"
           onChange={(e) => setH(e.target.value)}
           type="text"
-          placeholder=" Informe a altura (h)"
+          placeholder={placeH ? "Ex: " + placeH : "Ex: 50"}
         />
 
         <br />

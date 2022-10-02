@@ -1,0 +1,19 @@
+.gotas{
+    margin: 20px;
+    border-radius: 20px;
+    text-align: left;
+    padding: 20px;
+    box-shadow: 3px 6px 10px #265ece;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+form input, button{
+   max-width: 50vh;
+}
+
+form  button{
+    max-width: 52vh;
+ }
