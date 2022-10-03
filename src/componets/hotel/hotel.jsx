@@ -15,6 +15,7 @@ export default function Hotel() {
     let valorArrecadado50 = 50 * 0.8 * diaria;
     placeDiaria = parseInt(diaria);
     let diferencaEntrevalores = valorArrecadado80 - valorArrecadado50;
+    
     if (!isNaN(diaria) && diaria > 0) {
       setExibirPromocao("Valor da diária promocional R$" + diariaPm);
       setExibir80Promocao(

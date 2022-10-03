@@ -10,14 +10,10 @@ export default function Dobro() {
     dobro.toFixed(2);
 
     if (!isNaN(dobro) && !isNaN(number)) {
-      if (parseFloat(number) < 1) {
-        setImprimirNumber("Não existe o dobro de 0");
-        return;
-      } else {
-        setImprimirNumber(
-          `O dobro de ${parseFloat(number).toFixed(2)} é ${dobro.toFixed(2)}`
-        );
-      }
+      setImprimirNumber(
+        `O dobro de ${parseFloat(number).toFixed(0)} é ${dobro.toFixed(0)}`
+      );
+      
     } else {
       setImprimirNumber("Somente números são permitidos");
     }

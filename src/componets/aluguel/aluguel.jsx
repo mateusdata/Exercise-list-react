@@ -12,10 +12,11 @@ export default function Aluguel() {
     e.preventDefault();
     let resultadoX = parseFloat(agenciaX) * 1.4 + 62;
     let resultadoY = parseFloat(agenciaY) * 1.2 + 80;
-    placeOne = parseInt(agenciaX);
-    placeTwo = parseInt(agenciaY);
+    placeOne = Math.abs(parseInt(agenciaX)) ;
+    placeTwo = Math.abs(parseInt(agenciaY));
     console.log(placeOne + placeTwo);
-    if (!isNaN(resultadoX) && !isNaN(resultadoY) && !isNaN(agenciaX)) {
+    
+    if (!isNaN(resultadoX) && !isNaN(resultadoY) && !isNaN(agenciaX) && agenciaX > 0 && agenciaY > 0 ) {
       setResuldadoAgencias(
         `O preço da diaria primeira agencia é R$${resultadoX.toFixed(
           2
