@@ -35,7 +35,7 @@ export default function Dobro() {
   return (
     <div className="dobro">
       <form onSubmit={verificar}>
-        <p>Crie um programa que exiba o dobro do number digitado</p>
+        <p>Crie um programa que exiba o dobro do número digitado</p>
         <label htmlFor="">Informe um numero</label>
         <input
         value={number}

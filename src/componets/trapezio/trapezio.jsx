@@ -37,9 +37,7 @@ export default function Trapezio() {
   }
 
   function limparTela(){
-    setB("");
-    setBm("");
-    setH("");
+    setResultadoTrapezio("");
     setLimparCampo(false);
   }
 
