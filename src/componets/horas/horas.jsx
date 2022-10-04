@@ -4,17 +4,19 @@ let placeHora = null;
 export default function Horas() {
   const [horas, setHoras] = useState("");
   const [resultadoHora, setResultadoHora] = useState("");
+  const [cor, setCor] = useState(null);
+  const [limparCampo, setLimparCampo] = useState(null);
 
   function producaoPeca(e) {
     e.preventDefault();
     let hora = (parseFloat(horas) * 37) / 3600;
     let minutos = (hora - parseInt(hora)) * 60;
     let segundos = (minutos - parseInt(minutos)) * 60;
-    placeHora = parseInt(horas)
+    placeHora = parseInt(horas);
     console.log(
       "HOTAS: " + hora.toFixed(2) + "\n segundo" + minutos + "\n" + segundos
     );
-    if (!isNaN(horas) && horas  > 0) {
+    if (!isNaN(horas) && horas > 0) {
       setResultadoHora(
         parseInt(hora) +
           " horas, " +
@@ -23,12 +25,18 @@ export default function Horas() {
           parseInt(segundos) +
           " segundos"
       );
+      setCor(true);
+    } else {
+      setResultadoHora("Somente números são permitidos");
+      setCor(false);
     }
-    else{
-      setResultadoHora("Somente números são permitidos")
-    }
-    document.getElementById("hora").value = null;
-    setHoras(null)
+    setHoras("");
+    setLimparCampo(true);
+  }
+
+  function limparTela() {
+    setResultadoHora("");
+    setLimparCampo(false);
   }
 
   return (
@@ -45,14 +53,20 @@ export default function Horas() {
       <form action="" onSubmit={producaoPeca}>
         <label htmlFor="">Quantidade de peças</label>
         <input
+          value={horas}
           id="hora"
           placeholder={placeHora ? "Ex: " + placeHora : "Ex: 12"}
           onChange={(e) => setHoras(e.target.value)}
           type="text"
         />
         <button>Verificar</button>
+        {limparCampo ? (
+          <button onClick={limparTela} style={{ backgroundColor: "#76247f" }}>
+            Limpar campo
+          </button>
+        ) : null}
       </form>
-      <h1>{resultadoHora}</h1>
+      <h1 style={{ color: cor ? "green" : "#c41111" }}>{resultadoHora}</h1>
     </div>
   );
 }

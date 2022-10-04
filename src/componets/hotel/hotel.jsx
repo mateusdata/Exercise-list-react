@@ -7,6 +7,9 @@ export default function Hotel() {
   const [diaria80Promocional, setExibir80Promocao] = useState("");
   const [diaria50Promocional, setExibir50Promocao] = useState("");
   const [diferencaValores, setDiferencaValores] = useState("");
+  const [cor, setCor]  = useState(null);
+  const [limparCampo, setLimparCampo] = useState(null);
+
 
   function verificarPromocoes(e) {
     e.preventDefault();
@@ -15,7 +18,7 @@ export default function Hotel() {
     let valorArrecadado50 = 50 * 0.8 * diaria;
     placeDiaria = parseInt(diaria);
     let diferencaEntrevalores = valorArrecadado80 - valorArrecadado50;
-    
+
     if (!isNaN(diaria) && diaria > 0) {
       setExibirPromocao("Valor da diária promocional R$" + diariaPm);
       setExibir80Promocao(
@@ -30,13 +33,24 @@ export default function Hotel() {
         "A diferença entre estes dois valores R$" +
           diferencaEntrevalores.toFixed(2)
       );
+      setCor(true);
     } else {
       setExibirPromocao(null);
       setExibir80Promocao(null);
       setExibir50Promocao(null);
       setDiferencaValores("Somente números são permitidos");
+      setCor(false);
     }
-    document.getElementById("inputHotel").value = null
+    setDiaria("");
+    setLimparCampo(true);
+  }
+
+  function limparTela(){
+    setExibirPromocao("");
+    setExibir80Promocao("");
+    setExibir50Promocao("");
+    setDiferencaValores("");
+    setLimparCampo(false);
   }
 
   return (
@@ -62,17 +76,19 @@ export default function Hotel() {
       <form action="" onSubmit={verificarPromocoes}>
         <label htmlFor="">Diária normal</label>
         <input
+        value={diaria}
         id="inputHotel"
           onChange={(e) => setDiaria(e.target.value)}
           type="text"
           placeholder={placeDiaria ? "Ex: " + placeDiaria : "Ex: 10" }
         />
         <button>Verificar</button>
+        {limparCampo ?  <button  onClick={limparTela} style={{backgroundColor:"#76247f"}}>Limpar campo</button>: null}
       </form>
       <h1>{diariaPromocional}</h1>
       <h1>{diaria80Promocional}</h1>
       <h1>{diaria50Promocional}</h1>
-      <h1>{diferencaValores}</h1>
+      <h1 style={{color: cor ? "green" : "#c41111"}}>{diferencaValores}</h1>
     </div>
   );
 }

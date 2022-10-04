@@ -7,6 +7,8 @@ export default function Aluguel() {
   const [agenciaX, setAgenciaX] = useState("");
   const [agenciaY, setAgenciaY] = useState("");
   const [resuldadoAgencias, setResuldadoAgencias] = useState("");
+  const [cor, setCor0] = useState(null)
+  const [limparCampo, setLimparCampo] = useState(null)
 
   function verificarAgencia(e) {
     e.preventDefault();
@@ -18,17 +20,28 @@ export default function Aluguel() {
     
     if (!isNaN(resultadoX) && !isNaN(resultadoY) && !isNaN(agenciaX) && agenciaX > 0 && agenciaY > 0 ) {
       setResuldadoAgencias(
+        
         `O preço da diaria primeira agencia é R$${resultadoX.toFixed(
           2
         )}, preço da diaria na agencia Y é R$${resultadoY.toFixed(2)}`
       );
+      setCor0(true);
     } else {
       setResuldadoAgencias("Somente números são permitidos");
+      setCor0(false);
+     
     }
     document.getElementById("agenciaX").value = null;
     document.getElementById("agenciaY").value = null;
     setAgenciaX(null);
     setAgenciaY(null);
+    setLimparCampo(true);
+  }
+
+
+  function limparTela(){
+    setResuldadoAgencias("");
+    setLimparCampo(false);
   }
 
   return (
@@ -59,9 +72,10 @@ export default function Aluguel() {
         />{" "}
         <br />
         <button>Verificar</button>
+        {limparCampo ?  <button  onClick={limparTela} style={{backgroundColor:"#76247f"}}>Limpar campo</button>: null}
       </form>
 
-      <h1>{resuldadoAgencias}</h1>
+      <h1 style={{color: cor ? "green" : "#c41111" }} > {resuldadoAgencias}</h1>
     </div>
   );
 }

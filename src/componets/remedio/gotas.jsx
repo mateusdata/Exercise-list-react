@@ -4,19 +4,28 @@ let placePeso = null;
 export default function Gotas() {
   const [peso, setPeso] = useState("");
   const [exibirGotas, setExibirGotas] = useState("");
+  const [cor, setCor] = useState(null);
+  const [limparCampo, setLimparCampo] = useState(null);
 
   function QuantidadeGotas(e) {
     e.preventDefault();
     let quantidades = (parseInt(peso) * 5) / 2;
     placePeso = parseInt(peso);
     if (!isNaN(peso) && !isNaN(quantidades) && peso > 0) {
-      setExibirGotas("A quantidade a ser igerida é " + quantidades + " gotas");
+      setExibirGotas("A quantidade a ser igerida é " + quantidades + " gotas")
+      setCor(true);
     } else {
-      setExibirGotas("Somente números são permitidos");
+      setExibirGotas("Somente números são permitidos")
+      setCor(false);
     }
+    setPeso("");
+    setLimparCampo(true);
+   
+  }
 
-    document.getElementById("remedio").value = null;
-    setPeso(null);
+  function limparTela(){
+    setExibirGotas("");
+    setLimparCampo(false);
   }
   return (
     <div className="gotas">
@@ -30,14 +39,16 @@ export default function Gotas() {
       <form action="" onSubmit={QuantidadeGotas}>
         <label>Quantidade gotas</label>
         <input
+        value={peso}
           id="remedio"
           onChange={(e) => setPeso(e.target.value)}
-          placeholder={placePeso ? "Ex: " + placePeso : "Ex: 55" }
+          placeholder={placePeso ? "Ex: " + placePeso : "Ex: 55"}
           type=""
         />
         <button type="submit">Verificar</button>
+        {limparCampo ?  <button onClick={limparTela} style={{backgroundColor:"#76247f"}}>Limpar campo</button>: null}
       </form>
-      <h1>{exibirGotas}</h1>
+      <h1 style={{color: cor ? "green" : "#c41111"}}>{exibirGotas}</h1>
     </div>
   );
 }

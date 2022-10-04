@@ -46,10 +46,14 @@ input {
   border-radius: 20px;
   padding: 4px 0px 4px 12px;
   border: solid 2px #1a2b50;
-  box-shadow: 3px 0px 15px 0px #213c77;
+ /* box-shadow: 3px 0px 15px 0px #213c77;*/
   height: 1.5em;
   font-size: 2.9vh;
-  outline: red;
+  
+}
+input:active {
+ border-color: solid 2px red;
+ 
 }
 h1{
   font-size: calc(4px + 4vmin);

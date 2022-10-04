@@ -8,6 +8,8 @@ export default function Trapezio() {
   const [b, setBm] = useState("");
   const [h, setH] = useState("");
   const [resultadoTrapezio, setResultadoTrapezio] = useState("");
+  const [cor, setCor]  = useState(null);
+  const [limparCampo, setLimparCampo] = useState(null);
 
   function Manipulartrapezio(e) {
     e.preventDefault();
@@ -20,15 +22,25 @@ export default function Trapezio() {
     let A = ((parseFloat(B) + parseFloat(b)) * parseFloat(h)) / 2;
     if (!isNaN(A)) {
       setResultadoTrapezio("A altura do trapezio é " + A);
+      setCor(true);
     } else {
       setResultadoTrapezio("Somente números sao permitidos");
+      setCor(false);
     }
     document.getElementById("B").value = "";
     document.getElementById("b").value = "";
     document.getElementById("A").value = "";
-    setB(null);
-    setBm(null);
-    setH(null);
+    setB("");
+    setBm(""); 
+    setH("");
+    setLimparCampo(true);
+  }
+
+  function limparTela(){
+    setB("");
+    setBm("");
+    setH("");
+    setLimparCampo(false);
   }
 
   return (
@@ -42,6 +54,7 @@ export default function Trapezio() {
       <form onSubmit={Manipulartrapezio} action="">
         <label htmlFor="">Base maior (B)</label>
         <input
+        value={B}
           id="B"
           onChange={(e) => setB(e.target.value)}
           type="text"
@@ -50,6 +63,7 @@ export default function Trapezio() {
 
         <label htmlFor="">Base menor (b)</label>
         <input
+        value={b}
           id="b"
           onChange={(e) => setBm(e.target.value)}
           type="text"
@@ -58,6 +72,7 @@ export default function Trapezio() {
 
         <label htmlFor="">Altura (h)</label>
         <input
+        value={h}
           id="A"
           onChange={(e) => setH(e.target.value)}
           type="text"
@@ -66,8 +81,9 @@ export default function Trapezio() {
 
         <br />
         <button>Verificar</button>
+        {limparCampo ?  <button  onClick={limparTela} style={{backgroundColor:"#76247f"}}>Limpar campo</button>: null}
       </form>
-      <h1>{resultadoTrapezio}</h1>
+      <h1 style={{color: cor ? "green" : "#c41111"}} >{resultadoTrapezio}</h1>
     </div>
   );
 }
