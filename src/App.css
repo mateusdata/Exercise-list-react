@@ -17,8 +17,21 @@
   font-size: calc(4px + 3vmin); 
 }
 #menu {
- margin-left: 1em;
+ margin-left: -2px;
 }
+.divmenu {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin: 10px;
+  position: relative;
+}
+#botaoMenu{
+  background-color: #0a204e ;
+  border: none;
+ 
+}
+
 
 #redes {
   display: flex;
