@@ -7,8 +7,8 @@ export default function Aluguel() {
   const [agenciaX, setAgenciaX] = useState("");
   const [agenciaY, setAgenciaY] = useState("");
   const [resuldadoAgencias, setResuldadoAgencias] = useState("");
-  const [cor, setCor0] = useState(null)
-  const [limparCampo, setLimparCampo] = useState(null)
+  const [cor, setCor0] = useState(null);
+  const [limparCampo, setLimparCampo] = useState(null);
 
   function verificarAgencia(e) {
     e.preventDefault();

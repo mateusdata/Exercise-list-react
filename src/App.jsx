@@ -1,17 +1,22 @@
 import "./App.css";
-import Dobro from "./componets/dobro/dobro";
-import Trapezio from "./componets/trapezio/trapezio";
-import Aluguel from "./componets/aluguel/aluguel";
-import Horas from "./componets/horas/horas";
-import Gotas from "./componets/remedio/gotas";
-import Hotel from "./componets/hotel/hotel";
+import MenuIcon from '@mui/icons-material/Menu';
+import Dobro from "./componets/sequencial/dobro/dobro";
+import Trapezio from "./componets/sequencial/trapezio/trapezio";
+import Aluguel from "./componets/sequencial/aluguel/aluguel";
+import Horas from "./componets/sequencial/horas/horas";
+import Gotas from "./componets/sequencial/remedio/gotas";
+import Hotel from "./componets/sequencial/hotel/hotel"; 
+import Angulo from "./componets/condicional/angulo/angulo";
+import Footer from "./componets/footer/footer";
+
+
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 function App() {
   return (
     <div className="App">
-      <header className="App-header"> <p>Exercise list</p> 
+      <header className="App-header"><MenuIcon id="menu"/> <p>Exercise list</p> 
       <div id="redes">
       <a href="https://www.instagram.com/mateus.data/" target="_blank" rel="noreferrer"><InstagramIcon style={{color:"#bb2b73"} } /></a>
       <a href="https://www.linkedin.com/in/mateusdata/" target="_blank" rel="noreferrer"><LinkedInIcon style={{color:"#0961b8"}}/></a>
@@ -25,6 +30,8 @@ function App() {
         <Horas/>
         <Gotas/>
         <Hotel/>
+        <Angulo/>
+        <Footer/>
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: #0a204e;
 }
 
 .App-header {
@@ -12,19 +13,20 @@
   color: rgb(231, 225, 225);
   border-bottom: 1px solid rgb(18, 18, 99);
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  gap: 1em;
-  font-size: calc(4px + 3vmin);
+  gap: 0.5em;
+  font-size: calc(4px + 3vmin); 
+}
+#menu {
+ margin-left: 1em;
 }
 
 #redes {
   display: flex;
   flex-direction: row;
   justify-content: right;
-  gap: 5ch;
-  margin-top: 10PX;
-  height: 10vh;
-
-
+  gap: 2ch;
+  margin-top: 7px;
+  margin-left: 5px;
 }
 
 .App-header p {
@@ -79,3 +81,9 @@ h1 {
 
   color: rgb(4, 161, 70);
 }
+
+/*@media only screen and (min-width:371px){
+  input{
+   
+  }
+}*/
