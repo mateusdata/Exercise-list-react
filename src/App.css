@@ -13,8 +13,11 @@
   color: rgb(231, 225, 225);
   border-bottom: 1px solid rgb(18, 18, 99);
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  gap: 0.5em;
+  gap: 0.6em;
   font-size: calc(4px + 3vmin); 
+  position: fixed;
+  width: 100%;
+  
 }
 #menu {
  margin-left: -2px;
@@ -23,13 +26,15 @@
   display: flex;
   flex-direction: column;
   text-align: left;
-  margin: 10px;
-  position: relative;
+  padding-bottom: 100vh;
+  margin: 90px 20px 20px 20px;
+  max-width: 30vh;
+ 
+
 }
 #botaoMenu{
   background-color: #0a204e ;
-  border: none;
- 
+  border: none; 
 }
 
 
