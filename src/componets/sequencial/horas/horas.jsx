@@ -53,18 +53,22 @@ export default function Horas() {
       <form action="" onSubmit={producaoPeca}>
         <label htmlFor="">Quantidade de peças</label>
         <input
+          max={10}
+          min={1}
+          minLength={1}
+          maxLength={10}
           value={horas}
           id="hora"
           placeholder={placeHora ? "Ex: " + placeHora : "Ex: 12"}
           onChange={(e) => setHoras(e.target.value)}
-          type="text"
+          type="number"
         />
         <button>Verificar</button>
         {limparCampo ? (
           <button onClick={limparTela} style={{ backgroundColor: "#76247f" }}>
             Limpar campo
           </button>
-        ) : null}
+        ) : null} 
       </form>
       <h1 style={{ color: cor ? "green" : "#c41111" }}>{resultadoHora}</h1>
     </div>

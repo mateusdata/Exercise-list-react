@@ -1,10 +1,12 @@
 import { useState } from "react";
 import "./app.css";
+
 export default function Dobro() {
   const [number, setNumber] = useState("");
   const [imprimirNumber, setImprimirNumber] = useState("");
   const [cor, setCor] = useState(null);
   const [limparCampo, setLimparCampo] = useState(null);
+  const [place, setPlace]  = useState(null);
 
   function verificar(e) {
     e.preventDefault();
@@ -22,14 +24,15 @@ export default function Dobro() {
       setCor(false);
       setLimparCampo(true)
     }
+    setPlace(number);
     setNumber("");
   }
 
 
   function limparTela(){
-    setImprimirNumber("")
-    setLimparCampo(false)
-
+    setImprimirNumber("");
+    setLimparCampo(false);
+  
   }
 
   return (
@@ -39,10 +42,12 @@ export default function Dobro() {
         <label htmlFor="">Informe um numero</label>
         <input
         value={number}
+        max={99}
+        maxLength={13}
           id="dobro"
           onChange={(e) => setNumber(e.target.value)}
-          type="text"
-          placeholder={parseInt(number) ? "Ex: " + parseInt(number) : "Ex: 20"}
+          type="number"
+          placeholder={place ? "Ex: " + place : "Ex: 20"}
         />
         <button id="xx">Verificar</button>
         {limparCampo ?  <button  onClick={limparTela} style={{backgroundColor:"#76247f"}}>Limpar campo</button>: null}

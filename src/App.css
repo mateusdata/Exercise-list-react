@@ -26,11 +26,18 @@
   display: flex;
   flex-direction: column;
   text-align: left;
-  padding-bottom: 100vh;
-  margin: 90px 20px 20px 20px;
-  max-width: 30vh;
- 
+  margin: 80px 10px 50px 0px;
+  height: 100vh;
+  width: 80vw;
+  background-color: #132449;
+  position: fixed;
+  margin: 2px solid;
 
+}
+.divmenu p{
+  margin-left: 0.5em;
+  color: rgb(255, 255, 255);
+  text-decoration: underline;
 }
 #botaoMenu{
   background-color: #0a204e ;
