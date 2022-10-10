@@ -15,7 +15,7 @@
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   gap: 0.6em;
   font-size: calc(4px + 3vmin); 
-
+  position: fixed;
   width: 100%;
   
 }
@@ -26,17 +26,17 @@
   display: flex;
   flex-direction: column;
   text-align: left;
-  margin: 80px 10px 50px 0px;
+  margin: 93px 10px 50px 0px;
   height: 100vh;
   width: 80vw;
-  background-color: #d6d2d2;
+  background-color: #f7f1f1;
   position: fixed;
   margin: 2px solid;
 
 }
 .divmenu p{
   margin-left: 0.5em;
-  color: rgb(0, 0, 0);
+  color: blue;
   text-decoration: underline;
   font-weight:bold;
 }
