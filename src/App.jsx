@@ -29,7 +29,7 @@ function App() {
     <div className="App">
        
       <header className="App-header">
-        <button onClick={menuActive} id="botaoMenu"> { !menu ? <MenuIcon  id="menu" />: <CloseIcon id="menu"/> }</button>
+        <button onClick={menuActive} id="botaoMenu"> { menu ? <CloseIcon id="menu"/>:  <MenuIcon  id="menu" />  }</button>
         <p>Exercise list</p>
         <div id="redes">
           <a
