@@ -1,6 +1,6 @@
 import "./App.css";
 import MenuIcon from "@mui/icons-material/Menu";
-import CloseIcon from '@mui/icons-material/Close';
+import CloseIcon from "@mui/icons-material/Close";
 import Dobro from "./componets/sequencial/dobro/dobro";
 import Trapezio from "./componets/sequencial/trapezio/trapezio";
 import Aluguel from "./componets/sequencial/aluguel/aluguel";
@@ -18,6 +18,11 @@ import { useState } from "react";
 function App() {
   const [menu, setMenu] = useState(null);
 
+  function BotaoFecharMain() {
+    
+    setMenu(false);
+  }
+
   function menuActive() {
     if (menu) {
       setMenu(false);
@@ -27,9 +32,10 @@ function App() {
   }
   return (
     <div className="App">
-       
       <header className="App-header">
-        <button onClick={menuActive} id="botaoMenu"> { menu ? <CloseIcon id="menu"/>:  <MenuIcon  id="menu" />  }</button>
+        <button onClick={menuActive} id="botaoMenu">
+          {menu ? <p></p> : <MenuIcon id="menu" />}
+        </button>
         <p>Exercise list</p>
         <div id="redes">
           <a
@@ -55,14 +61,29 @@ function App() {
           </a>
         </div>
       </header>
-      <div className="matematica">
+      <div onClick={BotaoFecharMain}  className="main">
         {menu ? (
           <div className="divmenu">
-            <p>Menu</p>
-            <p>Sobre</p>
-            <p>Contribuir</p>
+            <div id="fecharMenu">
+              <p id="linkMenu">Menu</p>
+
+              <button
+                id="menux"
+                style={{
+                  border: "none",
+                  background: "#f7f1f1",
+                  width: "230px",
+                }}
+                onClick={menuActive}
+              >
+                <CloseIcon style={{ color: "black" }} />
+              </button>
+            </div>
+            <p className="linksMenu">Sobre</p>
+            <p className="linksMenu">Contribuir</p>
           </div>
         ) : null}
+        
         <Dobro />
         <Trapezio />
         <Aluguel />

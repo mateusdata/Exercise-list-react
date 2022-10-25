@@ -14,35 +14,57 @@
   border-bottom: 1px solid rgb(18, 18, 99);
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   gap: 0.6em;
-  font-size: calc(4px + 3vmin); 
+  font-size: calc(4px + 3vmin);
   position: fixed;
   width: 100%;
-  
+ 
 }
 #menu {
- margin-left: -2px;
+  margin-left: 0px;
+  color: white;
 }
+
 .divmenu {
   display: flex;
   flex-direction: column;
   text-align: left;
-  margin: 93px 10px 50px 0px;
+  margin: 0px 10px 50px 0px;
   height: 100vh;
-  width: 80vw;
+  width: 20vw;
   background-color: #f7f1f1;
   position: fixed;
   margin: 2px solid;
 
 }
-.divmenu p{
+
+.divmenu p {
   margin-left: 0.5em;
-  color: blue;
-  text-decoration: underline;
-  font-weight:bold;
+  color: rgb(14, 13, 13);
+  text-decoration: none;
+  font-weight: bold;
 }
-#botaoMenu{
-  background-color: #0a204e ;
-  border: none; 
+
+#botaoMenu {
+  background-color: #0a204e;
+  border: none;
+}
+
+#fecharMenu {
+  width: 90%;
+  height: 4.5vh;
+  padding: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#menux {
+  margin: 0px 0px 0px 130px;
+
+}
+
+#linkMenu {
+  margin-left: 0px;
 }
 
 
@@ -54,6 +76,10 @@
   margin-top: 7px;
   margin-left: 5px;
 }
+#redes a{
+  text-decoration: none;
+  color: red;
+}
 
 .App-header p {
   text-align: center;
@@ -61,7 +87,7 @@
   font-size: 28px;
 }
 
-.matematica {
+.main {
   background-color: #111c33;
   font-size: calc(6px + 4vmin);
   width: 100%;
@@ -71,8 +97,8 @@
 }
 
 button {
-  background-color: rgb(9, 126, 9);
-  color: rgb(228, 225, 225);
+  background-color:#4C7DDC;
+  color: rgb(233, 225, 225);
   border-radius: 16px;
   padding: 0px 0px 0px 0px;
   padding: 5px;
@@ -81,7 +107,7 @@ button {
 }
 
 button:hover {
-  background-color: rgb(21, 153, 21);
+  background-color:#4071d3;
   color: white;
   border: solid 1px rgb(37, 12, 180);
 }
@@ -108,8 +134,29 @@ h1 {
   color: rgb(4, 161, 70);
 }
 
-/*@media only screen and (min-width:371px){
-  input{
-   
+@media only screen and (max-width:800px) {
+
+  .divmenu {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin: 0px 10px 50px 0px;
+    height: 100vh;
+    width: 65vw;
+    background-color: #f7f1f1;
+    position: fixed;
+    margin: 2px solid;
+    text-decoration: none;
   }
-}*/
+
+  #menux {
+    margin: 0px 0px 0px 150px;
+
+  }
+  #menu {
+    margin-left: -1px;
+  }
+  #linkMenu {
+    margin-left: -4px;
+  }
+}

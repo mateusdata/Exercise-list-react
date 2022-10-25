@@ -24,7 +24,9 @@ export default function Dobro() {
       setCor(false);
       setLimparCampo(true)
     }
-    setPlace(number);
+    
+    setPlace(Math.abs(number));
+    console.log(place)
     setNumber("");
   }
 
@@ -42,7 +44,7 @@ export default function Dobro() {
         <label htmlFor="">Informe um numero</label>
         <input
         value={number}
-        max={99}
+        max={999999}
         maxLength={13}
           id="dobro"
           onChange={(e) => setNumber(e.target.value)}
